@@ -372,7 +372,7 @@ public class ChatActivity extends AppCompatActivity {
     private void videoCall(){
 
 
-        startActivity(new Intent(ChatActivity.this, RequestVideoCall.class).putExtra("target_id",target.getId()).putExtra("target_name",target.getName()).putExtra("target_image",target.getImage()));
+        startActivity(new Intent(ChatActivity.this, RequestVideoCall.class).putExtra("target_id",target.getId()+"").putExtra("target_name",target.getName()+"").putExtra("target_image",target.getImage()+""));
 
     }
 
