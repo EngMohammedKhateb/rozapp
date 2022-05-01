@@ -97,6 +97,18 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"/>
         </LinearLayout>
+        <rozapp.roz.app.helper.EnglishLanguage
+            android:id="@+id/guest_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Login Using Email And Password"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="45dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"/>
 
         <LinearLayout
             android:layoutDirection="ltr"
@@ -110,7 +122,8 @@
               <rozapp.roz.app.helper.EnglishLanguage
                 android:id="@+id/tv_privacy"
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                  android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="12dp"
                 android:layout_height="wrap_content"
@@ -121,17 +134,7 @@
 
 
 
-        <rozapp.roz.app.helper.EnglishLanguage
-            android:id="@+id/guest_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Login Using Email And Password"
 
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="25dp"
-            android:textAlignment="center"
-            android:textColor="@color/white"/>
 
     </LinearLayout>
 

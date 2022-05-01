@@ -738,7 +738,9 @@ public class ReciveVideoCall extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         web_view.loadUrl("about:blank");
-
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.stop();
+        }
 
         if(is_call_ended){
             Constants.incall=false;
