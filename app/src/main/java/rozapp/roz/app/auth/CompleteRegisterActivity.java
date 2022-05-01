@@ -137,13 +137,15 @@ public class CompleteRegisterActivity extends AppCompatActivity {
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult datares) {
-                        Intent data=datares.getData();
-                        String result=data.getStringExtra("RESULT");
-                        Uri resultUri=null;
-                        if(result!=null){
-                            resultUri=Uri.parse(result);
+                        if(datares!=null){
+                            Intent data=datares.getData();
+                            String result=data.getStringExtra("RESULT");
+                            Uri resultUri=null;
+                            if(result!=null){
+                                resultUri=Uri.parse(result);
 
-                            uploadImage(resultUri.getPath());
+                                uploadImage(resultUri.getPath());
+                            }
                         }
                     }
             });
