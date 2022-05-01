@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/pay_plan"
+        android:enabled="true"
+        android:title="pay plan"
+    />
+    <item
+        android:id="@+id/request"
+        android:enabled="true"
+        android:title="request client"
+    />
+    <item
+        android:id="@+id/search"
+        android:enabled="true"
+        app:showAsAction="always"
+        android:icon="@drawable/search_dark"
+        android:title="search"
+        />
+    <item
+        android:id="@+id/pay_out"
+        android:enabled="true"
+        android:title="Payout"
+        />
+
+    <item
+        android:id="@+id/settings"
+        android:enabled="true"
+        android:title="Settings"
+        />
+    <item
+        android:id="@+id/logout"
+        android:enabled="true"
+        android:title="logout"
+        />
+</menu>

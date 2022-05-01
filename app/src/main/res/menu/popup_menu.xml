@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/notification"
+        android:orderInCategory="100"
+        android:title="@string/report"
+        android:gravity="left"
+        android:icon="@drawable/report"
+        android:iconTint="@color/black"
+        app:showAsAction="never" />
+
+        <item
+            android:id="@+id/my_courses"
+            android:orderInCategory="100"
+            android:title="@string/block"
+
+            android:gravity="left"
+            android:icon="@drawable/block_icon"
+            android:iconTint="@color/black"
+            app:showAsAction="never" />
+
+
+
+</menu>

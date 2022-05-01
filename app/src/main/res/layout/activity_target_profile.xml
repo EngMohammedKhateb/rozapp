@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile.TargetProfileActivity">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/page"
+            android:background="?attr/back_color"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:background="@drawable/gradient_profile"
+                android:layout_width="140dp"
+                android:layout_alignParentLeft="true"
+                android:layout_height="360dp"/>
+            <LinearLayout
+                android:id="@+id/linearc"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layoutDirection="ltr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    >
+                    <ImageView
+                        android:id="@+id/arrow_back"
+                        android:src="@drawable/arrow_left"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:tint="?attr/text_color"
+                        />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"/>
+
+
+                    <ImageView
+                        android:src="@drawable/more_vert"
+                        android:layout_width="30dp"
+                        android:layout_gravity="right"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="20dp"
+
+                        android:id="@+id/more_vert"
+                        app:tint="?attr/text_color"
+                        />
+                </LinearLayout>
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp">
+
+                    <ImageView
+                        android:id="@+id/user_image_p"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_weight="1"
+                        android:background="?attr/back_color"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_user" />
+
+                    <RelativeLayout
+                        android:id="@+id/video_call"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/circle_gradeint">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/video_white" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="35dp"
+                    android:padding="15dp"
+                    android:orientation="vertical"
+                    android:layoutDirection="ltr"
+                    android:textDirection="ltr"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                   <LinearLayout
+                       android:orientation="horizontal"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <TextView
+                           android:id="@+id/user_name_tv"
+                           android:text="User Name"
+                           android:textSize="24dp"
+                           android:textStyle="bold"
+                           android:textColor="?attr/text_color"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+                       <RelativeLayout
+                           android:layout_weight="1"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"/>
+
+                       <RelativeLayout
+                           android:id="@+id/btf"
+                           android:layout_width="35dp"
+                           android:layout_marginLeft="10dp"
+                           android:layout_marginRight="10dp"
+                           android:background="@drawable/circle_gradeint"
+                           android:layout_height="35dp">
+
+                           <ImageView
+                               android:id="@+id/btn_follow"
+                               android:layout_width="25dp"
+                               android:layout_height="25dp"
+                               android:layout_centerInParent="true"
+
+                               android:layout_gravity="center_horizontal"
+                               android:src="@drawable/add_person"
+                               app:tint="@color/white" />
+                       </RelativeLayout>
+
+                       <ImageView
+                           android:id="@+id/chat_btn"
+                           android:src="@drawable/ic_baseline_chat_24"
+                           android:layout_width="35dp"
+                           app:tint="@color/app_dark_secondary"
+                           android:layout_height="35dp"/>
+
+                   </LinearLayout>
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/location_tv"
+                            android:drawableLeft="@drawable/location"
+                            android:layout_width="wrap_content"
+                            android:drawableTint="?attr/text_color"
+                            android:text=" Syria"
+                            android:textSize="14dp"
+                            android:gravity="center_vertical"
+                            android:textColor="?attr/text_color"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/email_tv"
+                            android:drawableLeft="@drawable/email"
+                            android:layout_width="wrap_content"
+                            android:drawableTint="?attr/text_color"
+                            android:text=" syria@gmail.com"
+                            android:layout_marginLeft="20dp"
+                            android:visibility="gone"
+                            android:textSize="14dp"
+                            android:gravity="center_vertical"
+                            android:textColor="?attr/text_color"
+                            android:layout_height="wrap_content"/>
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:gravity="center_vertical"
+
+                            android:layout_marginLeft="10dp"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:background="@drawable/icon_coin"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"/>
+                            <TextView
+                                android:id="@+id/coins_ber"
+                                android:layout_width="wrap_content"
+                                android:text=" 30 coin/minute"
+                                android:textSize="14dp"
+                                android:gravity="center_vertical"
+                                android:textColor="?attr/text_color"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/followers_tv"
+                            android:drawableLeft="@drawable/heart"
+                            android:layout_width="wrap_content"
+                            android:drawableTint="?attr/text_color"
+                            android:text=" 30k followers"
+                            android:textSize="14dp"
+                            android:gravity="center_vertical"
+                            android:textColor="?attr/text_color"
+                            android:layout_height="wrap_content"/>
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <ProgressBar
+                            android:id="@+id/pp_follow"
+                            android:layout_width="25dp"
+                            android:visibility="gone"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:padding="15dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/short_bio"
+                        android:textSize="24dp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/text_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:text="Short Bio"
+
+                        android:id="@+id/status_tv"
+                        android:textColor="?attr/text_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+
+
+
+                    <TextView
+                        android:id="@+id/gifts_st"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/gift"
+                        android:layout_width="wrap_content"
+                        android:drawableTint="@color/app_dark_secondary"
+                        android:text="@string/gifts"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:padding="4dp"
+                        android:gravity="center_vertical"
+                        android:textColor="?attr/text_color"
+                        android:layout_height="wrap_content"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/gifts_rv"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="90dp"/>
+                <ProgressBar
+                    android:id="@+id/progress_gifts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <LinearLayout
+                    android:id="@+id/tabs"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/images_tv"
+                        android:text="@string/images"
+                        android:drawablePadding="10dp"
+                        android:padding="5dp"
+                        android:textSize="18dp"
+                        android:drawableStart="@drawable/image"
+                        android:drawableTint="@color/app_dark_secondary"
+                        android:textColor="?attr/text_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/videos_tv"
+                        android:text="@string/videos"
+                        android:textSize="18dp"
+                        android:padding="5dp"
+                        android:drawableStart="@drawable/video_white"
+                        android:drawableTint="@color/app_dark_secondary"
+                        android:layout_marginLeft="20dp"
+                        android:drawablePadding="10dp"
+                        android:textColor="?attr/text_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RelativeLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <RelativeLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:background="?attr/back_color"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    app:tabTextAppearance="@style/MineCustomTabText2"
+                    app:tabMode="scrollable"
+                    app:tabTextColor="?attr/text_color"
+                    app:tabSelectedTextColor="@color/app_dark_primary"
+                    app:tabIndicatorColor="@color/app_dark_primary"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/images"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/images"
+                        />
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:id="@+id/videos"
+                        android:layout_height="wrap_content"
+                        android:text="@string/videos"
+                        /></com.google.android.material.tabs.TabLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/rv_images"
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone"
+                    android:layout_height="100dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/video_rv"
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:padding="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/user_id_tv"
+                android:layout_below="@+id/linearc"
+                android:textAlignment="center"
+                android:layout_margin="20dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="?attr/text_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+    <ProgressBar
+        android:id="@+id/progress_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
+</RelativeLayout>

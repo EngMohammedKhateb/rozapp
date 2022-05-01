@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="?attr/back_color"
+    android:minWidth="300dp"
+    android:minHeight="200dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="8dp"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:minWidth="300dp"
+    android:minHeight="200dp"
+    android:layout_height="wrap_content">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:text="@string/edit_your_statue"
+    android:drawablePadding="5dp"
+    android:textSize="15dp"
+    android:id="@+id/title"
+    android:textAlignment="textStart"
+    android:drawableStart="@drawable/edit"
+    android:drawableTint="@color/black"
+    android:textColor="@color/black"
+    android:gravity="center"
+    tools:ignore="RtlCompat" />
+
+    <EditText
+        android:id="@+id/ed_message"
+        android:layout_margin="10dp"
+        android:background="#eee"
+        android:minHeight="50dp"
+        android:layout_width="match_parent"
+        android:text="@string/type_new_statue"
+        android:padding="15dp"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/close_btn"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:backgroundTint="@color/app_dark_primary"
+            android:text="@string/cancel_pp"
+            android:textColor="#fff"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:id="@+id/update_btn"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:backgroundTint="@color/app_dark_secondary"
+            android:text="@string/save"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>

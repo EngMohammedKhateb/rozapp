@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rcs_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical" >
+
+        <LinearLayout
+            android:id="@+id/linear_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:foreground="?android:attr/selectableItemBackground"
+            >
+            <ImageView
+                android:id="@+id/iv1"
+                android:src="@drawable/block_icon"
+                android:layout_width="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="30dp"
+                app:tint="?attr/text_color"
+                />
+            <TextView
+                android:id="@+id/tv1"
+                android:text="@string/block"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="?attr/text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear_report"
+            android:layout_width="match_parent"
+            android:background="?android:attr/selectableItemBackground"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+            <ImageView
+                android:id="@+id/iv2"
+                android:src="@drawable/report"
+                android:layout_width="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="30dp"
+                app:tint="?attr/text_color"
+                />
+            <TextView
+                android:id="@+id/tv2"
+                android:text="@string/report"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="?attr/text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

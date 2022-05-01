@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/back_color"
+    tools:context=".pages.ChatFragment">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:id="@+id/add_new"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:background="@drawable/circle_pink"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:src="@drawable/chatnav"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:tint="@color/white" />
+        </RelativeLayout>
+        <TextView
+            android:text="@string/add_new_message"
+            android:textColor="?attr/text_color"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@drawable/ed_dark_bordered"
+
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:layout_height="60dp">
+        <EditText
+            android:id="@+id/ed_search"
+
+            android:hint="@string/search_messages"
+            android:textColorHint="?attr/text_color"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="?attr/text_color"
+            android:background="?attr/back_color"
+            android:layout_margin="20dp"
+            android:textSize="12dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/btn_search"
+            android:layout_gravity="center_vertical"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/search"
+            app:tint="?attr/text_color"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:text="@string/all_messages"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="?attr/text_color"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_contact"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <ProgressBar
+        android:id="@+id/pp_contact"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+
+
+</FrameLayout>

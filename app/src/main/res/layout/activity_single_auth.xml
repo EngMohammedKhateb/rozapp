@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="@color/blueroz"
+    tools:context=".auth.SingleAuthActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/bluegif"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/btn_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_auth"
+            android:layout_marginBottom="10dp"
+            android:text="login with google"
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:src="@drawable/faceook"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <TextView
+                android:id="@+id/tv_facebok"
+                android:text="@string/login_with_facebook"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginEnd="30dp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/btn_google"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_auth"
+            android:layout_marginBottom="15dp"
+            android:text="login with google"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp">
+        <ImageView
+            android:src="@drawable/google"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+       <TextView
+           android:id="@+id/tv_google"
+           android:text="@string/login_with_google"
+           android:textSize="15dp"
+            android:textAlignment="center"
+           android:textStyle="bold"
+           android:layout_marginEnd="30dp"
+           android:layout_gravity="center"
+           android:textColor="@color/black"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layoutDirection="ltr"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content">
+              <rozapp.roz.app.helper.EnglishLanguage
+                android:id="@+id/tv_privacy"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:layout_height="wrap_content"
+
+                android:text="By using Roz App ، you agree to our Terms &amp; Policy"/>
+
+        </LinearLayout>
+
+
+
+        <rozapp.roz.app.helper.EnglishLanguage
+            android:id="@+id/guest_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Login Using Email And Password"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

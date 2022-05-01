@@ -1,0 +1,67 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="DarkTheme.RozApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#fe2181</item>
+        <item name="colorSecondaryVariant">#7a1ff6</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="back_color">#19142b</item>
+        <item name="text_color">#fff</item>
+        <item name="list_item_back">#1d0529</item>
+        <item name="bottom_navigation">#1d014f</item>
+        <item name="bottom_navigation_item">#bc44bc</item>
+        <item name="bottom_navigation_item_selected">#fff</item>
+        <item name="bumble_my_message">#3b1159</item>
+        <item name="bumble_freind_message">#1c0726</item>
+        <item name="row_top_ten_color">#271344</item>
+
+
+    </style>
+    <style name="Theme.RozApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#fe2181</item>
+        <item name="colorSecondaryVariant">#7a1ff6</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="back_color">#eefcff</item>
+        <item name="text_color">#000</item>
+        <item name="list_item_back">#fff</item>
+        <item name="bottom_navigation">#fff</item>
+        <item name="bottom_navigation_item">#bc44bc</item>
+        <item name="bottom_navigation_item_selected">#1d014f</item>
+        <item name="bumble_my_message">#fff</item>
+        <item name="bumble_freind_message">#fff</item>
+        <item name="row_top_ten_color">#fff</item>
+    </style>
+    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="MineCustomTabText2" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
+          <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+</resources>

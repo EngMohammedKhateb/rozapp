@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/back_color"
+    android:orientation="vertical"
+    tools:context=".setting.SettingActivity">
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:title="Roz App Settings"
+        android:layoutDirection="ltr"
+        android:textDirection="ltr"
+        android:background="?attr/back_color"
+        android:titleTextColor="?attr/text_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Switch
+                    android:id="@+id/dark_switch"
+                    android:layoutDirection="ltr"
+                    android:textDirection="ltr"
+                    android:text="@string/dark_mode"
+                    android:textColor="?attr/text_color"
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Switch
+                    android:id="@+id/chat_switch"
+
+                    android:textColor="?attr/text_color"
+                    android:layoutDirection="ltr"
+                    android:textDirection="ltr"
+                    android:text="@string/disable_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Switch
+                    android:id="@+id/video_switch"
+                     android:textAlignment="textStart"
+                    android:layoutDirection="ltr"
+                    android:textDirection="ltr"
+                    android:textColor="?attr/text_color"
+                    android:text="@string/disable_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layoutDirection="ltr"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/text_color"
+                    android:text="@string/change_app_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageView"
+                    android:layout_marginTop="5dp"
+                    android:weightSum="1"
+                    android:id="@+id/radioGroup"
+                    >
+
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/arabic"
+                        android:id="@+id/arabic"
+                        android:textColor="?attr/text_color"
+
+                        android:checked="false"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/english"
+                        android:id="@+id/english"
+                        android:textColor="?attr/text_color"
+
+                        android:checked="false"
+                        />
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/container_name"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layoutDirection="ltr"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/text_color"
+
+                    android:text="@string/change_your_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/ed_name"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/enter_your_name"
+                    android:layout_width="match_parent"
+                    android:background="#eee"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_height="50dp"/>
+
+                <Button
+                    android:id="@+id/btn_name"
+                    android:text="@string/save"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="end"
+                    android:backgroundTint="@color/app_dark_secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/container_coins"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layoutDirection="ltr"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/text_color"
+                    android:text="@string/token_per_menute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/ed_coins"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:background="#eee"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:inputType="number"
+                    android:layout_height="50dp"/>
+                <TextView
+                    android:id="@+id/min_max_tv"
+                    android:textSize="11dp"
+                    android:text="@string/token_per_role"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="?attr/text_color"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btn_coins"
+                    android:text="@string/save"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="end"
+                    android:backgroundTint="@color/app_dark_secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layoutDirection="ltr"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/text_color"
+                    android:text="@string/change_your_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/enter_new_password"
+                    android:layout_width="match_parent"
+                    android:background="#eee"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/ed_password"
+                    android:layout_height="50dp"/>
+                <TextView
+                    android:id="@+id/pass_stat"
+                    android:textSize="11dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/password_role"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:textColor="?attr/text_color"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btn_password"
+                    android:text="@string/save"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="end"
+                    android:backgroundTint="@color/app_dark_secondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

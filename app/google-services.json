@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "172068894632",
+    "project_id": "rozapp-1648136216969",
+    "storage_bucket": "rozapp-1648136216969.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172068894632:android:dabf3cfaa70c712f6a0f9d",
+        "android_client_info": {
+          "package_name": "rozapp.roz.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172068894632-fpetaivnv7hqp476ehlbt0e58atmre2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Lt4bd4FzEcxUUbI6CveGcqjKmvn5Yx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172068894632-fpetaivnv7hqp476ehlbt0e58atmre2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

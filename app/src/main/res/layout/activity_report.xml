@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/back_color"
+    android:layout_height="match_parent"
+    tools:context=".setting.ReportActivity">
+    <ImageView
+        android:id="@+id/arrow_back"
+        android:src="@drawable/arrow_left"
+        android:layout_margin="20dp"
+        android:layout_gravity="left"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:tint="?attr/text_color" />
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:id="@+id/page"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <rozapp.roz.app.helper.EnglishLanguage
+                android:layout_margin="20dp"
+                android:text="@string/report_profile"
+                android:textSize="22dp"
+                android:drawablePadding="5dp"
+                android:textColor="?attr/text_color"
+                android:drawableTint="?attr/text_color"
+                android:drawableStart="@drawable/report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/text_color"
+                app:hintTextColor="?attr/text_color"
+                android:textColorHint="?attr/text_color"
+                app:boxStrokeColor="?attr/text_color"
+                android:hint="@string/plesae_descrip_happend"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:minLines="5"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/text_color"
+                    app:hintTextColor="?attr/text_color"
+                    android:textColorHint="?attr/text_color"
+                    app:boxStrokeColor="?attr/text_color"
+                    android:id="@+id/ed_note"
+                    android:gravity="top"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/btn_pay"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/roundedv"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/send_report"
+                    android:textColor="#fff"
+                    android:textSize="20dp" />
+
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

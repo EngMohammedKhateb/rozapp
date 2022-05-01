@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dash"
+        android:enabled="true"
+        android:icon="@drawable/dashboardnav"
+        android:title=""
+        />
+    <item
+        android:id="@+id/carsol"
+        android:enabled="true"
+        android:title=""
+        android:icon="@drawable/carsolnav"
+        />
+    <item
+        android:id="@+id/chat"
+        android:enabled="true"
+        android:title=""
+        android:icon="@drawable/chatnav"
+        />
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:title=""
+        android:icon="@drawable/usernav"
+        />
+
+
+
+
+</menu>

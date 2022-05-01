@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rcs_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical" >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            >
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/coin_icon"
+                    android:layout_width="25dp"
+                    android:src="@drawable/icon_coin"
+
+                    android:layout_height="25dp"/>
+                <TextView
+                    android:id="@+id/coins_count_tv"
+                    android:text="20 coin"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/orange"
+                    android:layout_width="wrap_content"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:id="@+id/recharge_btn"
+                android:layout_width="100dp"
+                android:background="@drawable/rounded_recharge"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recharge"
+                    android:textAlignment="center"
+                    android:textColor="#fff" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cat_rv"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gifts_rv"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+             android:layout_height="350dp"/>
+        <ProgressBar
+            android:id="@+id/pp_gifts"
+            android:layout_margin="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

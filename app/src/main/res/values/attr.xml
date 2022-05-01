@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="dt">
+        <attr name="back_color" format="color"/>
+        <attr name="text_color" format="color"/>
+        <attr name="list_item_back" format="color"/>
+        <attr name="bottom_navigation" format="color"/>
+        <attr name="bottom_navigation_item" format="color"/>
+        <attr name="bottom_navigation_item_selected" format="color"/>
+        <attr name="bumble_my_message" format="color"/>
+        <attr name="bumble_freind_message" format="color"/>
+        <attr name="row_top_ten_color" format="color"/>
+
+
+    </declare-styleable>
+    
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eefcff"
+    tools:context=".auth.LoginActivity">
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_width="170dp"
+                android:layout_height="170dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/rozlogo" />
+
+            </RelativeLayout>
+            <TextView
+                android:text="Login to your account"
+                android:textAlignment="textStart"
+                android:layout_marginTop="30dp"
+                android:textSize="25dp"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/email_ed"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:hint="email address"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/ed_bordered"
+                />
+
+            <EditText
+                android:id="@+id/password_ed"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:hint="password"
+                android:inputType="textPassword"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:background="@drawable/ed_bordered"
+                />
+
+            <RelativeLayout
+                android:id="@+id/btn_login"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/roundedv"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Login"
+                    android:id="@+id/tv_login"
+                    android:textColor="#fff"
+                    android:textSize="20dp" />
+                <ProgressBar
+                    android:id="@+id/progress_login"
+                    android:visibility="gone"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/go_create_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Create new Account !"
+                android:visibility="gone"
+                android:layout_marginTop="30dp"
+                android:textColor="#000"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

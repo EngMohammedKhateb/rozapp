@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/back_color"
+    tools:context=".home.ProfileSettings">
+
+    <ImageView
+        android:id="@+id/arrow_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/arrow_left"
+        app:tint="?attr/text_color" />
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/btn_upload_profile"
+                android:background="@drawable/gradient_button"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_height="120dp">
+
+                <TextView
+                    android:id="@+id/tv_upload_profile"
+                    android:layout_width="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:drawableStart="@drawable/image"
+                    android:text="@string/upload_profile"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+                <ProgressBar
+                    android:id="@+id/pp_profile"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/btn_change_statue"
+                android:background="@drawable/gradient_button"
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:layout_height="120dp">
+
+                <TextView
+                    android:id="@+id/change_statue_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/edit"
+                    android:text="@string/change_statue"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+                <ProgressBar
+                    android:id="@+id/pp_change_statue"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/btn_upload_video"
+            android:background="@drawable/gradient_button"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_height="120dp">
+
+            <TextView
+                android:id="@+id/tv_upload_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawableStart="@drawable/video_white"
+                android:text="@string/upload_video"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:drawablePadding="5dp"
+                android:textStyle="bold" />
+            <ProgressBar
+                android:id="@+id/pp_video"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/btn_upload_image"
+            android:background="@drawable/gradient_button"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:layout_height="120dp">
+
+            <TextView
+                android:id="@+id/tv_upload_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawableStart="@drawable/image"
+                android:text="@string/upload_image"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:drawablePadding="5dp"
+                android:textStyle="bold" />
+            <ProgressBar
+                android:id="@+id/pp_image"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

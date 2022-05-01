@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/back_color"
+    android:orientation="vertical"
+    tools:context=".setting.PayoutActivity">
+
+
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:id="@+id/page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/arrow_left"
+                android:layout_gravity="left"
+                android:src="@drawable/arrow_left"
+                android:layout_margin="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:tint="?attr/text_color" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:background="@drawable/visa"
+                android:textDirection="ltr"
+                android:layoutDirection="ltr"
+                android:layout_margin="20dp">
+
+
+                <rozapp.roz.app.helper.EnglishLanguage
+                    android:id="@+id/you_have_tv"
+                    android:textStyle="bold"
+                    android:text="you have"
+                    android:textSize="18dp"
+                    android:textColor="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="25dp"
+                        android:src="@drawable/icon_coin"
+                        />
+
+                    <rozapp.roz.app.helper.EnglishLanguage
+                        android:layout_width="wrap_content"
+                        android:id="@+id/coins_tv"
+                        android:textStyle="bold"
+                        android:text="200 "
+
+                        android:textSize="30dp"
+                        android:textColor="#fff"
+                        android:layout_height="wrap_content"/>
+                    <rozapp.roz.app.helper.EnglishLanguage
+                        android:id="@+id/token_tv"
+                        android:layout_width="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="25dp"
+                        android:textColor="#fff"
+                        android:text="token"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+
+                <rozapp.roz.app.helper.EnglishLanguage
+                    android:id="@+id/price"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp"
+                    android:textSize="18dp"
+                    android:textAlignment="textEnd"
+                    android:text="$50"
+                    android:textColor="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:textColor="?attr/text_color"
+                app:hintTextColor="?attr/text_color"
+                android:textColorHint="?attr/text_color"
+                app:boxStrokeColor="?attr/text_color"
+                android:layout_height="wrap_content"
+                android:hint="@string/select_payout_gatway">
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_tv"
+                    android:layout_width="match_parent"
+                    android:textColor="?attr/text_color"
+                    app:hintTextColor="?attr/text_color"
+                    android:textColorHint="?attr/text_color"
+                    app:boxStrokeColor="?attr/text_color"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/text_color"
+                app:hintTextColor="?attr/text_color"
+                android:textColorHint="?attr/text_color"
+                app:boxStrokeColor="?attr/text_color"
+                android:layout_margin="20dp"
+                android:hint="@string/enter_phone_number"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/ed_phone"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/text_color"
+                    app:hintTextColor="?attr/text_color"
+                    android:textColorHint="?attr/text_color"
+                    app:boxStrokeColor="?attr/text_color"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/text_color"
+                app:hintTextColor="?attr/text_color"
+                android:textColorHint="?attr/text_color"
+                app:boxStrokeColor="?attr/text_color"
+                android:hint="@string/enter_account_details"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:minLines="3"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/text_color"
+                    app:hintTextColor="?attr/text_color"
+                    android:textColorHint="?attr/text_color"
+                    app:boxStrokeColor="?attr/text_color"
+                    android:id="@+id/ed_note"
+                    android:gravity="top"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <rozapp.roz.app.helper.EnglishLanguage
+                android:id="@+id/note"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="16dp"
+                android:text=""
+                android:textColor="?attr/text_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <RelativeLayout
+                android:id="@+id/btn_pay"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/roundedv"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/send_data"
+                    android:textColor="#fff"
+                    android:textSize="20dp" />
+
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+<ProgressBar
+    android:id="@+id/progress"
+    android:layout_marginTop="280dp"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

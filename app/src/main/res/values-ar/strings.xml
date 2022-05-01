@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Roz App</string>
+    <string name="facebook_app_id">337802545034792</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">56789</string>
+    <string name="default_notification_channel_name">namech</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel2</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="login_with_facebook"> تسجيل الدخول باستخدام facebook </string>
+    <string name="login_with_google"> التسجيل باستخدام google </string>
+    <string name="short_bio"> وصف قصير </string>
+    <string name="images"> الصور </string>
+    <string name="videos"> الفيديوهات </string>
+    <string name="gifts"> الهدايا </string>
+    <string name="add_new_message"> إنشاء محادثه جديدة </string>
+    <string name="search_messages"> البحث عن محادثة </string>
+    <string name="all_messages"> جميع المحادثات </string>
+    <string name="all"> الجميع </string>
+    <string name="online"> المتصلون </string>
+    <string name="followers"> المتابعون </string>
+    <string name="following"> المتابعات </string>
+    <string name="settings"> الإعدادات </string>
+    <string name="setting_description"> قم بضبط الإعدادات من أجل أفضل استخدام </string>
+    <string name="account"> الحساب </string>
+    <string name="buy_plans">شراء الخطط</string>
+    <string name="request_client">طلب عميل</string>
+    <string name="pay_out">سحب الدفعات</string>
+    <string name="privacy_policy">سياسة الاستخدام</string>
+    <string name="languages">اللغات</string>
+    <string name="theme">الثيم</string>
+    <string name="block_list">قائمة الحظر</string>
+    <string name="rate_app">تقييم التطبيق</string>
+    <string name="log_out">تسجيل الخروج</string>
+
+    <string name="change_app_language">تغيير لغة التطبيق</string>
+    <string name="arabic">العربية</string>
+    <string name="english">الانجليزية</string>
+    <string name="change_your_name">تغيير الأسم</string>
+    <string name="enter_your_name">أدخل اسمك</string>
+    <string name="save">حفظ</string>
+    <string name="token_per_menute">سعر الدقيقة بالتوكينز</string>
+    <string name="token_per_role">token</string>
+    <string name="get_token">اشتري توكينز</string>
+    <string name="report">إبلاغ</string>
+    <string name="block">حظر</string>
+    <string name="change_statue">تغيير الحالة </string>
+    <string name="upload_profile"> تغيير الصورة </string>
+    <string name="edit_your_statue">تغيير الحالة</string>
+    <string name="type_new_statue">اكتب الحالة الجديدة</string>
+    <string name="cancel_pp">إلغاء</string>
+    <string name="upload_image"> إضافة صورة </string>
+    <string name="upload_video"> إضافة فيديو </string>
+    <string name="change_your_password">تغيير كلمة المرور</string>
+    <string name="enter_new_password">أدخل كلمة المرور الجديدة</string>
+    <string name="password_role">كلمة المرور يجب ان تكون من 8 احرف على الاقل</string>
+    <string name="buy_plan">شراء</string>
+    <string name="plans">الخطط</string>
+    <string name="request_client_title">إرسال المعلومات</string>
+    <string name="enter_full_name">أدخل الاسم الكامل</string>
+    <string name="enter_phone_number">أدخل رقم الهاتف</string>
+    <string name="select_birthday">اختر تاريخ الميلاد</string>
+    <string name="send_data"> ارسال المعلومات </string>
+    <string name="select_payout_gatway">اختر طريقة السحب</string>
+    <string name="enter_account_details">ادخل معلومات الحساب الشخصي</string>
+    <string name="request_client_desc">نمنح مستخدمينا الحرية الكاملة بشدة ، ولكن لتجنب أي نوع من الحوادث والإزعاج ، نوصيك بتقديم بعض المعلومات للسلامة والأمن</string>
+    <string name="report_profile">الإبلاغ عن حساب</string>
+    <string name="plesae_descrip_happend"> صف لنا ماذا حدث </string>
+    <string name="send_report"> إرسال الإبلاغ </string>
+    <string name="search_users"> البحث عن أشخاص </string>
+    <string name="search_for_users"> اكتب اسم للبحث... </string>
+    <string name="dark_mode"> الوضع الليلي </string>
+    <string name="disable_chat"> إيقاف الدردشة </string>
+    <string name="disable_video"> إيقاف مكالمات الفيديو </string>
+    <string name="night"> الوضع الليلي </string>
+    <string name="light"> الوضع النهاري </string>
+
+</resources>

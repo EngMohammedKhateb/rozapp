@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/back_color"
+    tools:context=".users.SearchActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_margin="15dp"
+        android:src="@drawable/arrow_left"
+        android:layout_width="40dp"
+        android:layout_gravity="left"
+        android:layout_height="40dp"
+        app:tint="?attr/text_color" />
+
+    <TextView
+        android:text="@string/search_users"
+        android:textSize="25dp"
+        android:textColor="?attr/text_color"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ed_search"
+            android:background="@drawable/ed_bordered_countries"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="?attr/text_color"
+            android:textColorHint="?attr/text_color"
+            android:layout_weight="1"
+            android:hint="@string/search_for_users"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        <RelativeLayout
+            android:id="@+id/btn_search"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/circle_gradeint"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:padding="5dp"
+
+                android:src="@drawable/search" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_users"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ProgressBar
+            android:id="@+id/pp"
+
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/not_found"
+            android:text="There are no users with this name"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:textColor="?attr/text_color"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

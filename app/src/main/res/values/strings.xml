@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Roz App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel2</string>
+    <string name="default_notification_channel_name">namech</string>
+    <string name="facebook_app_id">337802545034792</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">56789</string>
+
+    <string name="login_with_facebook"> Login with facebook </string>
+    <string name="login_with_google"> Login with google </string>
+    <string name="short_bio"> Short Bio </string>
+    <string name="images"> Images </string>
+    <string name="videos"> Videos </string>
+    <string name="gifts"> Gifts </string>
+    <string name="add_new_message"> Add New Message </string>
+    <string name="search_messages"> Search Message </string>
+    <string name="all_messages"> All Messages </string>
+
+    <string name="all"> all </string>
+    <string name="online"> online </string>
+    <string name="followers"> followers </string>
+    <string name="following"> following </string>
+    <string name="settings"> Setiings </string>
+    <string name="setting_description"> Manage Your Settings for best app use </string>
+    <string name="account">Account</string>
+    <string name="buy_plans">Buy Plans</string>
+    <string name="request_client">Request Client</string>
+    <string name="pay_out">Payout</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="languages">Languages</string>
+    <string name="theme">Theme</string>
+    <string name="block_list">Block List</string>
+    <string name="rate_app">Rate App</string>
+    <string name="log_out">Logout</string>
+    <string name="buy_plan">Buy</string>
+    <string name="plans">Plans</string>
+    <string name="request_client_title">Upload Info</string>
+    <string name="request_client_desc">We strongly give full freedom to our users, but to avoid any kind of mishap and nuisance we recommended you to provide additional info for safety and security</string>
+
+    <string name="change_app_language">change app language</string>
+    <string name="arabic">arabic</string>
+    <string name="save">save</string>
+    <string name="english">english</string>
+    <string name="change_your_name">change your name</string>
+    <string name="enter_your_name">enter your name</string>
+    <string name="token_per_menute">token per minute</string>
+    <string name="token_per_role">token </string>
+    <string name="get_token">get tokens</string>
+    <string name="report">report</string>
+    <string name="block">block</string>
+    <string name="change_statue">change statue</string>
+    <string name="upload_profile">Upload Profile</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="upload_video">Upload Video</string>
+    <string name="edit_your_statue">Edit your statue</string>
+    <string name="type_new_statue">type new statue</string>
+    <string name="cancel_pp">cancel</string>
+    <string name="change_your_password">change your password</string>
+    <string name="enter_new_password">enter new password</string>
+    <string name="password_role">password must be from 8 char at less</string>
+    <string name="enter_full_name">Enter full name</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="select_birthday">Select Your Birthday</string>
+    <string name="send_data">Send Data</string>
+    <string name="enter_account_details">Enter Account Details</string>
+    <string name="select_payout_gatway">select payout gateway</string>
+    <string name="report_profile">Report Profile</string>
+    <string name="plesae_descrip_happend"> Please describe what happened </string>
+    <string name="send_report"> Send report </string>
+    <string name="search_users"> Search Users </string>
+    <string name="search_for_users"> search for users... </string>
+    <string name="dark_mode"> Dark Mode </string>
+    <string name="disable_chat"> Disable Chat </string>
+    <string name="disable_video"> Disable Video </string>
+
+    <string name="night">night mode</string>
+    <string name="light">light mode</string>
+
+</resources>

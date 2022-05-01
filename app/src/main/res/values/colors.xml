@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="app_dark_primary">#7b33f5</color>
+    <color name="app_dark_secondary">#ef4484</color>
+    <color name="app_dark_bg_gradient">#272145</color>
+    <color name="app_dark_bg_gradient_tow">#0a0615</color>
+    <color name="bottom_navigation">#1d014f</color>
+    <color name="bottom_navigation_icons_dark">#bc44bc</color>
+    <color name="tab_not_active_dark">#6954b3</color>
+    <color name="glass">#e4e4e4</color>
+    <color name="green">#45CC4A</color>
+    <color name="red">#F13A2C</color>
+    <color name="orange">#FF5722</color>
+    <color name="top1">#fac333</color>
+    <color name="top2">#f37142</color>
+    <color name="top3">#5acefb</color>
+    <color name="blueroz">#0c2649</color>
+
+    <color name="start">#8749f4</color>
+    <color name="end">#f81e70</color>
+
+
+
+
+
+</resources>
