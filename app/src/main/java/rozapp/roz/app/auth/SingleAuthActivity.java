@@ -57,6 +57,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import rozapp.roz.app.models.ErrorHandler;
+import rozapp.roz.app.setting.PrivacyPolicyActivity;
 
 public class SingleAuthActivity extends AppCompatActivity  {
 
@@ -104,9 +105,7 @@ public class SingleAuthActivity extends AppCompatActivity  {
         tv_privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 dialog.setContentView(R.layout.privacy_dialog);
-                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                 dialog.show();
+                  startActivity(new Intent(SingleAuthActivity.this, PrivacyPolicyActivity.class));
             }
         });
 

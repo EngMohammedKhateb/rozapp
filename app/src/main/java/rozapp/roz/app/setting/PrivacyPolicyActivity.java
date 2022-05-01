@@ -32,25 +32,20 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
     TextView tv_privacy;
 
 
-    AuthResponse authResponse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(new CallData(getApplicationContext()).getCurrentTheme().equals("dark")){
-            setTheme(R.style.DarkTheme_RozApp);
-        }else{
-            setTheme(R.style.Theme_RozApp);
-        }
-
+        setTheme(R.style.Theme_RozApp);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_privacy_policy);
         ButterKnife.bind(this);
 
-        authResponse=new CallData(this).getAuthResponse();
+
         pp_privacy.setVisibility(View.VISIBLE);
         scroll.setVisibility(View.GONE);
-        KhateebPattern.getAuthServicesInstance(authResponse.getAccessToken()).privacyPolicy().enqueue(new Callback<ErrorHandler>() {
+        KhateebPattern.getServicesInstance().privacyPolicy().enqueue(new Callback<ErrorHandler>() {
             @Override
             public void onResponse(Call<ErrorHandler> call, Response<ErrorHandler> response) {
+
                 if(response.code()==200){
                     tv_privacy.setText(response.body().getMessage());
                 }
@@ -60,6 +55,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ErrorHandler> call, Throwable t) {
+
                 pp_privacy.setVisibility(View.GONE);
                 scroll.setVisibility(View.VISIBLE);
             }
