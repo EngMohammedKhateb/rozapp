@@ -1,12 +1,5 @@
 package rozapp.roz.app.home;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -19,14 +12,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-import com.facebook.AccessToken;
-import com.facebook.login.LoginManager;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -39,13 +31,15 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.net.URISyntaxException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rozapp.roz.app.R;
 import rozapp.roz.app.chat.ChatActivity;
 import rozapp.roz.app.events.CallAcceptedEvent;
@@ -76,13 +70,8 @@ import rozapp.roz.app.pages.DashboardFragment;
 import rozapp.roz.app.pages.ProfileFragment;
 import rozapp.roz.app.profile.TargetProfileActivity;
 import rozapp.roz.app.serve.ChatApplication;
-import rozapp.roz.app.setting.SettingShooserActivity;
 import rozapp.roz.app.users.SearchActivity;
 import rozapp.roz.app.videocall.ReciveVideoCall;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity   {
 
@@ -502,6 +491,13 @@ public class HomeActivity extends AppCompatActivity   {
 
     private void LogOut() {
 
+
+
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("follow"+authResponse.getUser().getId());
+        FirebaseMessaging.getInstance().subscribeToTopic("call"+authResponse.getUser().getId());
+        FirebaseMessaging.getInstance().subscribeToTopic("message"+authResponse.getUser().getId());
         KhateebPattern.getAuthServicesInstance(authResponse.getAccessToken()).logOut().enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -519,6 +515,9 @@ public class HomeActivity extends AppCompatActivity   {
                 new CallData(HomeActivity.this).LogOutHome();
             }
         });
+
+
+
     }
 
 

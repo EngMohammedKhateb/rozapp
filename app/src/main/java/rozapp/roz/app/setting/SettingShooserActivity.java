@@ -1,7 +1,5 @@
 package rozapp.roz.app.setting;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -12,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -19,12 +19,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
 import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rozapp.roz.app.MainActivity;
 import rozapp.roz.app.R;
 import rozapp.roz.app.helper.CallData;
@@ -32,10 +37,6 @@ import rozapp.roz.app.helper.GradientTextView;
 import rozapp.roz.app.helper.KhateebPattern;
 import rozapp.roz.app.home.HomeActivity;
 import rozapp.roz.app.models.AuthResponse;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class SettingShooserActivity extends AppCompatActivity {
 
@@ -238,7 +239,9 @@ public class SettingShooserActivity extends AppCompatActivity {
 
     }
     private void LogOut() {
-
+        FirebaseMessaging.getInstance().subscribeToTopic("follow"+authResponse.getUser().getId());
+        FirebaseMessaging.getInstance().subscribeToTopic("call"+authResponse.getUser().getId());
+        FirebaseMessaging.getInstance().subscribeToTopic("message"+authResponse.getUser().getId());
         KhateebPattern.getAuthServicesInstance(authResponse.getAccessToken()).logOut().enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
