@@ -1,9 +1,10 @@
 package rozapp.roz.app.setting;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,6 +36,11 @@ public class CheckOutPlan extends AppCompatActivity {
 
     @BindView(R.id.progress_pay)
     ProgressBar progressBar;
+    @BindView(R.id.payment_id_text)
+    TextView payment_id_text;
+
+    @BindView(R.id.btn_retry)
+    Button btn_retry;
 
 
     AuthResponse authResponse;
@@ -50,7 +56,7 @@ public class CheckOutPlan extends AppCompatActivity {
     private String client_secret;
 
     PaymentSheet paymentSheet;
-
+    String payment_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if(new CallData(getApplicationContext()).getCurrentTheme().equals("dark")){
@@ -61,6 +67,8 @@ public class CheckOutPlan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out_plan);
         ButterKnife.bind(this);
+        payment_id_text.setVisibility(View.GONE);
+        btn_retry.setVisibility(View.GONE);
         authResponse=new CallData(this).getAuthResponse();
 
         plan_id=getIntent().getStringExtra("plan_id").toString();
@@ -75,7 +83,13 @@ public class CheckOutPlan extends AppCompatActivity {
 
 
 
-
+        btn_retry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn_retry.setVisibility(View.GONE);
+                confirmPayment(payment_id);
+            }
+        });
 
        //confirmPayment(token);
 
@@ -83,12 +97,22 @@ public class CheckOutPlan extends AppCompatActivity {
     }
 
     private void onPaymentResult(PaymentSheetResult paymentSheetResult){
+
+        if(paymentSheetResult instanceof PaymentSheetResult.Failed){
+            DynamicToast.makeError(CheckOutPlan.this,"payment canceled").show();
+        }
+
         if(paymentSheetResult instanceof PaymentSheetResult.Canceled){
             DynamicToast.makeError(CheckOutPlan.this,"payment canceled").show();
         }
+
         if(paymentSheetResult instanceof PaymentSheetResult.Completed){
             DynamicToast.makeSuccess(CheckOutPlan.this,"payment completed").show();
+            payment_id_text.setText("take screen shoot for your payment id :\n"+payment_id);
+            payment_id_text.setVisibility(View.VISIBLE);
+            confirmPayment(payment_id);
         }
+
     }
 
 
@@ -103,20 +127,14 @@ public class CheckOutPlan extends AppCompatActivity {
                         customer_id=json.get("id").toString();
                         getEphemeralKey(customer_id);
 
-                        KhateebPattern.showToast(CheckOutPlan.this,"customer_id:"+customer_id);
+
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }
                 }else{
-                    try {
-                        String string_response=response.body().string();
-                        Log.e("response error",string_response);
-                        DynamicToast.makeError(CheckOutPlan.this,"status_code"+response.code()+string_response).show();
-                    }catch (Exception ex){
-
-                    }
-
-
+                    DynamicToast.makeError(CheckOutPlan.this,"Bad Internet Connection... try again later").show();
+                    progressBar.setVisibility(View.GONE);
+                    btn_retry.setVisibility(View.GONE);
                 }
 
 
@@ -141,12 +159,14 @@ public class CheckOutPlan extends AppCompatActivity {
                         ephemeral_key=json.get("id").toString();
                         getClientSecret(customer_id,ephemeral_key);
 
-                        KhateebPattern.showToast(CheckOutPlan.this,"ephemeral_key:"+ephemeral_key);
+
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }
                 }else{
-                    DynamicToast.makeError(CheckOutPlan.this,"status_code"+response.code()).show();
+                    DynamicToast.makeError(CheckOutPlan.this,"Bad Internet Connection... try again later",7).show();
+                    progressBar.setVisibility(View.GONE);
+                    btn_retry.setVisibility(View.GONE);
                 }
 
             }
@@ -154,6 +174,8 @@ public class CheckOutPlan extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 DynamicToast.makeError(CheckOutPlan.this,t.getLocalizedMessage()).show();
+                progressBar.setVisibility(View.GONE);
+                btn_retry.setVisibility(View.GONE);
             }
         });
 
@@ -170,18 +192,23 @@ public class CheckOutPlan extends AppCompatActivity {
                         String string_response=response.body().string();
                         JSONObject json=new JSONObject(string_response);
                         client_secret=json.get("client_secret").toString();
-                        KhateebPattern.showToast(CheckOutPlan.this,"client_secret:"+client_secret);
+                        payment_id=json.get("id").toString();
+
                         paymentFlow();
+                        progressBar.setVisibility(View.GONE);
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }
                 }else{
-                    DynamicToast.makeError(CheckOutPlan.this,"status_code"+response.code()).show();
+                    DynamicToast.makeError(CheckOutPlan.this,"Bad Internet Connection... try again later",7).show();
+                    progressBar.setVisibility(View.GONE);
+                    btn_retry.setVisibility(View.GONE);
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+                progressBar.setVisibility(View.GONE);
                 DynamicToast.makeError(CheckOutPlan.this,t.getLocalizedMessage()).show();
             }
         });
@@ -197,23 +224,33 @@ public class CheckOutPlan extends AppCompatActivity {
     }
 
     private void confirmPayment(String stripToken) {
-
-        KhateebPattern.getAuthServicesInstance(authResponse.getAccessToken()).payPlan( plan_id,token,amount ).enqueue(new Callback<PayResponse>() {
+        progressBar.setVisibility(View.VISIBLE);
+        KhateebPattern.getAuthServicesInstance(authResponse.getAccessToken()).payPlan( plan_id,stripToken,amount ).enqueue(new Callback<PayResponse>() {
             @Override
             public void onResponse(Call<PayResponse> call, Response<PayResponse> response) {
                 if(response.code()==200){
                     DynamicToast.makeSuccess(CheckOutPlan.this,"your order completed successfully",5000).show();
+                    progressBar.setVisibility(View.GONE);
+                    btn_retry.setVisibility(View.GONE);
                 }else{
                     DynamicToast.makeError(CheckOutPlan.this,"no internet connection try again later").show();
+                    try {
+                        payment_id_text.setText(response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    progressBar.setVisibility(View.GONE);
+                    btn_retry.setVisibility(View.VISIBLE);
                 }
-                progressBar.setVisibility(View.GONE);
+
 
             }
 
             @Override
             public void onFailure(Call<PayResponse> call, Throwable t) {
-                DynamicToast.makeError(CheckOutPlan.this,"no internet connection try again later").show();
+                DynamicToast.makeError(CheckOutPlan.this,"Bad internet Connection please try again", 7).show();
                 progressBar.setVisibility(View.GONE);
+                btn_retry.setVisibility(View.VISIBLE);
 
             }
         });
