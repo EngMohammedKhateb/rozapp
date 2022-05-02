@@ -192,6 +192,25 @@ public class KhateebPattern {
         InterfaceServices service=retrofit.create(InterfaceServices.class);
         return  service;
     }
+    public static InterfaceServices getAuthVersionStripServicesInstance(final String token){
+
+        String apiurl= Constants.STRIP_URL.toString();
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                Request newRequest  = chain.request().newBuilder()
+                        .addHeader("Content-Type", "application/x-www-form-urlencoded" )
+                        .addHeader("Authorization", "Bearer " + token)
+                        .addHeader("Stripe-Version", "2020-08-27")
+                        .build();
+                return chain.proceed(newRequest);
+            }
+        }).build();
+        Retrofit retrofit=new Retrofit.Builder().client(client).baseUrl(apiurl)
+                .addConverterFactory(GsonConverterFactory.create(new Gson())).build();
+        InterfaceServices service=retrofit.create(InterfaceServices.class);
+        return  service;
+    }
     public static void playAssetSound(Context context,String filename ) {
         try {
             MediaPlayer mediaPlayer = new MediaPlayer();

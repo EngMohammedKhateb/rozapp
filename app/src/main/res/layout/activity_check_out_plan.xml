@@ -9,80 +9,26 @@
     android:background="?attr/back_color"
     tools:context=".setting.CheckOutPlan">
 
-    <ImageView
-        android:src="@drawable/card"
-        android:layout_width="120dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="120dp"/>
-
-
-    <EditText
-        android:id="@+id/card_number_ed"
-        android:background="#eee"
-        android:layout_margin="20dp"
-        android:hint="1234 1234 1234 1234"
-        android:paddingRight="10dp"
-        android:maxLength="16"
-        android:paddingLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/exp_month_ed"
-            android:background="#eee"
-            android:layout_weight="1"
-
-            android:layout_marginLeft="20dp"
-            android:hint="MM ex: 12"
-            android:paddingRight="10dp"
-            android:maxLength="2"
-            android:paddingLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
-        <EditText
-            android:id="@+id/exp_year_ed"
-            android:background="#eee"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"
-            android:hint="year ex: 2030"
-            android:paddingRight="10dp"
-
-            android:paddingLeft="10dp"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/card"
+            android:layout_width="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="120dp"/>
 
 
-
+        <ProgressBar
+            android:id="@+id/progress_pay"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
-    <EditText
-        android:id="@+id/cvc_ed"
-        android:background="#eee"
-        android:maxLength="3"
-        android:layout_margin="20dp"
-        android:hint="cvc"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
-    <ProgressBar
-        android:id="@+id/progress_pay"
-        android:layout_width="match_parent"
-        android:layout_margin="20dp"
-        android:text="pay"
-        android:visibility="gone"
-        android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btn_pay"
-        android:layout_width="match_parent"
-        android:layout_margin="20dp"
-        android:text="@string/buy_plan"
-        android:layout_height="wrap_content"/>
 
 </LinearLayout>

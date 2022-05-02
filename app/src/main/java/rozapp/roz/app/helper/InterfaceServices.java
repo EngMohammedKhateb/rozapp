@@ -1,10 +1,18 @@
 package rozapp.roz.app.helper;
 
-import rozapp.roz.app.models.AuthResponse;
-
-
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
+import rozapp.roz.app.models.AuthResponse;
 import rozapp.roz.app.models.AuthedUserProfile;
 import rozapp.roz.app.models.ChatCategory;
 import rozapp.roz.app.models.ChatMessage;
@@ -20,17 +28,6 @@ import rozapp.roz.app.models.RefreshInfo;
 import rozapp.roz.app.models.TargetProfile;
 import rozapp.roz.app.models.TargetProfileGifts;
 import rozapp.roz.app.models.TopUser;
-import okhttp3.MultipartBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
-
-import retrofit2.http.Multipart;
-import retrofit2.http.POST;
-import retrofit2.http.Part;
-import retrofit2.http.Path;
 
 
 public interface InterfaceServices {
@@ -207,8 +204,21 @@ public interface InterfaceServices {
     @FormUrlEncoded
     Call<ErrorHandler> unBlockUser(@Field("id") String id );
 
+
+
     @GET("block/list")
     Call<List<DashboardUser>> getBlockList();
 
+    // ephemeral
 
+    @POST("v1/customers")
+    Call<ResponseBody> getCustomerId();
+
+    @POST("v1/ephemeral_keys")
+    @FormUrlEncoded
+    Call<ResponseBody> getEphemeralKey( @Field("customer") String customer);
+
+    @POST("v1/payment_intents")
+    @FormUrlEncoded
+    Call<ResponseBody> getClientSecret(@Field("customer") String customer,@Field("amount") String amount,@Field("currency") String currency,@Field("automatic_payment_methods[enabled]") String automatic);
 }
