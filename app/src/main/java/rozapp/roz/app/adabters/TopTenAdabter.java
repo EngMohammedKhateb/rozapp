@@ -1,9 +1,12 @@
 package rozapp.roz.app.adabters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +22,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import rozapp.roz.app.R;
 import rozapp.roz.app.helper.Constants;
 import rozapp.roz.app.models.TopUser;
+import rozapp.roz.app.profile.TargetProfileActivity;
 
 public class TopTenAdabter extends RecyclerView.Adapter<TopTenAdabter.TopTenViewHolder> {
 
@@ -38,12 +42,20 @@ public class TopTenAdabter extends RecyclerView.Adapter<TopTenAdabter.TopTenView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TopTenViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TopTenViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         holder.name.setText(users.get(position).getName());
         holder.number.setText(position+4+"");
         holder.coins.setText(users.get(position).getRate()+"");
         Picasso.with(context).load(Constants.Image_URL+users.get(position).getImage()).into(holder.image);
+
+        holder.root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, TargetProfileActivity.class).putExtra("target_id",users.get(position).getId()+""));
+            }
+        });
+
     }
 
     @Override
@@ -61,6 +73,8 @@ public class TopTenAdabter extends RecyclerView.Adapter<TopTenAdabter.TopTenView
         TextView coins;
         @BindView(R.id.image)
         CircleImageView image;
+        @BindView(R.id.root)
+        LinearLayout root;
 
 
         public TopTenViewHolder(@NonNull View itemView) {

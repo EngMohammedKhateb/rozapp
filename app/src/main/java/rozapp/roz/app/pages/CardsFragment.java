@@ -1,17 +1,17 @@
 package rozapp.roz.app.pages;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
@@ -21,15 +21,16 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rozapp.roz.app.R;
 import rozapp.roz.app.adabters.TopTenAdabter;
 import rozapp.roz.app.helper.CallData;
 import rozapp.roz.app.helper.Constants;
 import rozapp.roz.app.helper.KhateebPattern;
 import rozapp.roz.app.models.TopUser;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import rozapp.roz.app.profile.TargetProfileActivity;
 
 public class CardsFragment extends Fragment {
 
@@ -98,6 +99,46 @@ public class CardsFragment extends Fragment {
             top1_name.setText(top1.getName());
             top1_coins.setText(top1.getRate()+"");
             Picasso.with(getContext()).load(Constants.Image_URL+top1.getImage()).into(top1_image);
+
+            top1_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(), TargetProfileActivity.class).putExtra("target_id",top1.getId()+""));
+                }
+            });
+            top1_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(), TargetProfileActivity.class).putExtra("target_id",top1.getId()+""));
+                }
+            });
+
+
+            top2_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(), TargetProfileActivity.class).putExtra("target_id",top2.getId()+""));
+                }
+            });
+            top2_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(), TargetProfileActivity.class).putExtra("target_id",top2.getId()+""));
+                }
+            });
+
+            top3_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(), TargetProfileActivity.class).putExtra("target_id",top3.getId()+""));
+                }
+            });
+            top3_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(), TargetProfileActivity.class).putExtra("target_id",top3.getId()+""));
+                }
+            });
 
             top2_name.setText(top2.getName());
             top2_coins.setText(top2.getRate()+"");

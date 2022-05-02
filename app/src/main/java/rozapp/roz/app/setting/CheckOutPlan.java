@@ -234,11 +234,7 @@ public class CheckOutPlan extends AppCompatActivity {
                     btn_retry.setVisibility(View.GONE);
                 }else{
                     DynamicToast.makeError(CheckOutPlan.this,"no internet connection try again later").show();
-                    try {
-                        payment_id_text.setText(response.errorBody().string());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
                     progressBar.setVisibility(View.GONE);
                     btn_retry.setVisibility(View.VISIBLE);
                 }
