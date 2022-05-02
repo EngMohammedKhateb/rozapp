@@ -73,6 +73,8 @@ public class ChatAdabter extends RecyclerView.Adapter<ChatAdabter.ChatViewHolder
                 holder.row_my_msg.setVisibility(View.GONE);
                 holder.row_friend_msg.setVisibility(View.GONE);
                 holder.row_frien_gift_msg.setVisibility(View.GONE);
+                holder.row_my_misscall.setVisibility(View.GONE);
+                holder.row_misscall.setVisibility(View.GONE);
                 holder.row_my_gift_msg.setVisibility(View.VISIBLE);
 
                 Gson gson=new Gson();
@@ -81,11 +83,21 @@ public class ChatAdabter extends RecyclerView.Adapter<ChatAdabter.ChatViewHolder
                 holder.coins.setText(" "+gift.getCoins());
                 Picasso.with(context).load(Constants.Image_URL_Slashed+gift.getImage()).into(holder.my_gift_image);
 
+            }else if(messages.get(position).getMsgType().equals("missed_call")){
+                holder.row_my_msg.setVisibility(View.GONE);
+                holder.row_friend_msg.setVisibility(View.GONE);
+                holder.row_frien_gift_msg.setVisibility(View.GONE);
+                holder.row_my_gift_msg.setVisibility(View.GONE);
+                holder.row_my_misscall.setVisibility(View.VISIBLE);
+                holder.row_misscall.setVisibility(View.GONE);
+
             }else{
                 holder.row_my_msg.setVisibility(View.VISIBLE);
                 holder.row_friend_msg.setVisibility(View.GONE);
                 holder.row_frien_gift_msg.setVisibility(View.GONE);
                 holder.row_my_gift_msg.setVisibility(View.GONE);
+                holder.row_my_misscall.setVisibility(View.GONE);
+                holder.row_misscall.setVisibility(View.GONE);
                 holder.my_name_tv.setText("You");
                 if(messages.get(position).getUpdatedAt()==null){
                     holder.my_data_tv.setText("");
@@ -102,17 +114,29 @@ public class ChatAdabter extends RecyclerView.Adapter<ChatAdabter.ChatViewHolder
                 holder.row_friend_msg.setVisibility(View.GONE);
                 holder.row_frien_gift_msg.setVisibility(View.VISIBLE);
                 holder.row_my_gift_msg.setVisibility(View.GONE);
+                holder.row_my_misscall.setVisibility(View.GONE);
+                holder.row_misscall.setVisibility(View.GONE);
                 Gson gson=new Gson();
                 GiftMessage gift= gson.fromJson(messages.get(position).getMessage().toString(), GiftMessage.class);
 
                 holder.frined_coins.setText(" "+gift.getCoins());
                 Picasso.with(context).load(Constants.Image_URL_Slashed+gift.getImage()).into(holder.freind_gift_image);
 
+            }else if(messages.get(position).getMsgType().equals("missed_call")){
+                holder.row_my_msg.setVisibility(View.GONE);
+                holder.row_friend_msg.setVisibility(View.GONE);
+                holder.row_frien_gift_msg.setVisibility(View.GONE);
+                holder.row_my_gift_msg.setVisibility(View.GONE);
+                holder.row_my_misscall.setVisibility(View.GONE);
+                holder.row_misscall.setVisibility(View.VISIBLE);
+
             }else{
                 holder.row_friend_msg.setVisibility(View.VISIBLE);
                 holder.row_my_msg.setVisibility(View.GONE);
                 holder.row_frien_gift_msg.setVisibility(View.GONE);
                 holder.row_my_gift_msg.setVisibility(View.GONE);
+                holder.row_my_misscall.setVisibility(View.GONE);
+                holder.row_misscall.setVisibility(View.GONE);
                 holder.friend_name_tv.setText(messages.get(position).getFriend_name());
                 if(messages.get(position).getUpdatedAt()==null){
                     holder.freind_msg_date_tv.setText("");
@@ -211,6 +235,10 @@ public class ChatAdabter extends RecyclerView.Adapter<ChatAdabter.ChatViewHolder
         ImageView freind_gift_image;
         @BindView(R.id.my_gift_image)
         ImageView my_gift_image;
+        @BindView(R.id.row_my_misscall)
+        LinearLayout row_my_misscall;
+        @BindView(R.id.row_misscall)
+        LinearLayout row_misscall;
         public ChatViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);

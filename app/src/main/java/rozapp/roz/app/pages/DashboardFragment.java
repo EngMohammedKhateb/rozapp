@@ -1,14 +1,13 @@
 package rozapp.roz.app.pages;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -28,7 +27,6 @@ import rozapp.roz.app.events.UserDisconnectedEvent;
 import rozapp.roz.app.helper.CallData;
 import rozapp.roz.app.models.AuthResponse;
 import rozapp.roz.app.models.DashboardUser;
-
 import rozapp.roz.app.tabs.MyFragmentAdapter;
 
 public class DashboardFragment extends Fragment {
@@ -170,13 +168,18 @@ public class DashboardFragment extends Fragment {
 //    }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onUserDisconnectedEvent(UserDisconnectedEvent event) {
-        for (int i=0;i<users.size();i++){
-            if(event.getId() == users.get(i).getId()){
-                users.get(i).setOnline("0");
-                break;
-            }
-        }
-        dashboardAdabter.notifyDataSetChanged();
+
+       try{
+           for (int i=0;i<users.size();i++){
+               if(event.getId() == users.get(i).getId()){
+                   users.get(i).setOnline("0");
+                   break;
+               }
+           }
+           dashboardAdabter.notifyDataSetChanged();
+       }catch (Exception ex){
+
+       }
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onRefreshDashboardEvent(RefreshDashboardEvent event) {

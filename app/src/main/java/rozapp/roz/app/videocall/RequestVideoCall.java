@@ -1,12 +1,6 @@
 package rozapp.roz.app.videocall;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import static android.content.ContentValues.TAG;
 
 import android.Manifest;
 import android.content.Context;
@@ -16,7 +10,6 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
-
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -35,6 +28,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.pwittchen.swipe.library.rx2.Swipe;
 import com.github.pwittchen.swipe.library.rx2.SwipeListener;
@@ -56,6 +57,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.socket.client.Ack;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import rozapp.roz.app.Fcm.ApiClient;
+import rozapp.roz.app.Fcm.ApiInterface;
+import rozapp.roz.app.Fcm.DataModel;
+import rozapp.roz.app.Fcm.RootModel;
 import rozapp.roz.app.R;
 import rozapp.roz.app.adabters.CategoryAdabter;
 import rozapp.roz.app.adabters.ChatGiftsAdabter;
@@ -70,7 +79,6 @@ import rozapp.roz.app.events.VideoGiftEvent;
 import rozapp.roz.app.helper.CallData;
 import rozapp.roz.app.helper.Constants;
 import rozapp.roz.app.helper.KhateebPattern;
-
 import rozapp.roz.app.models.AuthResponse;
 import rozapp.roz.app.models.ChatCategory;
 import rozapp.roz.app.models.ChatGift;
@@ -79,9 +87,6 @@ import rozapp.roz.app.models.PeerConnectedEvent;
 import rozapp.roz.app.models.VideoChatMessage;
 import rozapp.roz.app.serve.ChatApplication;
 import rozapp.roz.app.setting.PlansActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RequestVideoCall extends AppCompatActivity {
 
@@ -203,6 +208,10 @@ public class RequestVideoCall extends AppCompatActivity {
     boolean element=true;
 
     Swipe swipe;
+
+    boolean call_accepted=false;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if(new CallData(getApplicationContext()).getCurrentTheme().equals("dark")){
@@ -491,8 +500,7 @@ public class RequestVideoCall extends AppCompatActivity {
       callJavascriptFunction("javascript:startCall(\""+target_id+"\")");
       Constants.is_stream=true;
 
-
-    }
+   }
 
     private void setupWebView() {
 
@@ -595,7 +603,7 @@ public class RequestVideoCall extends AppCompatActivity {
                startCall(target_id);
                android_page.setVisibility(View.GONE);
                web_screen.setVisibility(View.VISIBLE);
-
+               call_accepted=true;
            }
     }
 
@@ -834,6 +842,25 @@ public class RequestVideoCall extends AppCompatActivity {
         return true;
     }
 
+    private void sendNotification(){
+        RootModel rootModel = new RootModel("/topics/message"+target_id,new DataModel(authResponse.getUser().getId(),"missed_call",authResponse.getUser().getName(),authResponse.getUser().getImage()));
+
+        ApiInterface apiService =  ApiClient.getClient().create(ApiInterface.class);
+        retrofit2.Call<ResponseBody> responseBodyCall = apiService.sendNotification(rootModel);
+
+        responseBodyCall.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(retrofit2.Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
+                Log.d(TAG,"Successfully notification send by using retrofit.");
+
+            }
+
+            @Override
+            public void onFailure(retrofit2.Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
 
     @Override
     protected void onDestroy() {
@@ -848,6 +875,34 @@ public class RequestVideoCall extends AppCompatActivity {
             Constants.incall=false;
             Constants.is_stream=false;
             return;
+        }
+
+        if(!call_accepted){
+            JSONObject jsonObject=new JSONObject();
+            try {
+                jsonObject.put("from_user",authResponse.getUser().getId()+"");
+                jsonObject.put("to_user",target_id+"");
+                jsonObject.put("message","missed_call");
+                jsonObject.put("msg_type", "missed_call");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            ChatApplication.getSocket().emit("chat-message",jsonObject,new Ack() {
+                @Override
+                public void call(Object... args) {
+                    JSONObject dataobject = (JSONObject) args[0];
+                    String msg,status;
+                    try {
+                        msg= dataobject.getString("message");
+                        status=   dataobject.getString("status");
+                        sendNotification();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
         }
 
         if (no_enogh_coins) {

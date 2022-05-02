@@ -135,7 +135,23 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:id="@+id/row_my_misscall"
+        android:padding="15dp"
+        android:orientation="vertical"
 
+        android:background="@drawable/rounded_my_message"
+        android:layout_width="wrap_content"
+        android:layout_gravity="right"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/my_miscall_image"
+            android:layout_width="130dp"
+            android:src="@drawable/miscall"
+            android:layout_height="130dp"/>
+
+    </LinearLayout>
     <LinearLayout
         android:layout_margin="15dp"
         android:id="@+id/row_frien_gift_msg"
@@ -166,5 +182,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:id="@+id/row_misscall"
+        android:padding="15dp"
+        android:orientation="vertical"
+
+        android:background="@drawable/rounded_freind_message"
+        android:layout_width="wrap_content"
+        android:layout_gravity="left"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/miscall_image"
+            android:layout_width="130dp"
+            android:src="@drawable/miscall"
+            android:layout_height="130dp"/>
+
     </LinearLayout>
 </LinearLayout>
