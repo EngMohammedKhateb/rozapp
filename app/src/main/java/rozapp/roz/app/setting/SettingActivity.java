@@ -1,8 +1,5 @@
 package rozapp.roz.app.setting;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -19,22 +16,24 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
 import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rozapp.roz.app.MainActivity;
 import rozapp.roz.app.R;
 import rozapp.roz.app.helper.CallData;
 import rozapp.roz.app.helper.KhateebPattern;
 import rozapp.roz.app.home.HomeActivity;
 import rozapp.roz.app.models.AuthResponse;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -76,6 +75,8 @@ public class SettingActivity extends AppCompatActivity {
     EditText ed_name;
     @BindView(R.id.btn_name)
     Button btn_name;
+    @BindView(R.id.your_id_tv)
+    TextView your_id_tv;
 
     ProgressDialog progressPassword;
     ProgressDialog progressCoins;
@@ -97,6 +98,7 @@ public class SettingActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         authResponse=new CallData(this).getAuthResponse();
+        your_id_tv.setText("id : "+authResponse.getUser().getId()+"");
 
         SharedPreferences pref=getSharedPreferences("settings", Activity.MODE_PRIVATE);
         String language=pref.getString("language","en");
