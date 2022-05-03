@@ -2,11 +2,6 @@ package rozapp.roz.app.chat;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +17,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
@@ -41,6 +41,9 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.socket.client.Ack;
 import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rozapp.roz.app.Fcm.ApiClient;
 import rozapp.roz.app.Fcm.ApiInterface;
 import rozapp.roz.app.Fcm.DataModel;
@@ -56,7 +59,6 @@ import rozapp.roz.app.events.UserDisconnectedEvent;
 import rozapp.roz.app.helper.CallData;
 import rozapp.roz.app.helper.Constants;
 import rozapp.roz.app.helper.KhateebPattern;
-
 import rozapp.roz.app.models.AuthResponse;
 import rozapp.roz.app.models.ChatCategory;
 import rozapp.roz.app.models.ChatGift;
@@ -65,10 +67,6 @@ import rozapp.roz.app.models.Contact;
 import rozapp.roz.app.profile.TargetProfileActivity;
 import rozapp.roz.app.serve.ChatApplication;
 import rozapp.roz.app.setting.PlansActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import rozapp.roz.app.videocall.ReciveVideoCall;
 import rozapp.roz.app.videocall.RequestVideoCall;
 
 public class ChatActivity extends AppCompatActivity {
@@ -302,11 +300,9 @@ public class ChatActivity extends AppCompatActivity {
         authResponse=new CallData(this).getAuthResponse();
         target= (Contact) getIntent().getSerializableExtra("target");
 
-        if(target.getOnline().equals("0")){
-            video_call.setVisibility(View.GONE);
-        }else{
-            video_call.setVisibility(View.VISIBLE);
-        }
+
+        video_call.setVisibility(View.VISIBLE);
+
         Picasso.with(this).load(Constants.Image_URL+target.getImage()).into(user_image);
         user_name_tv.setText(target.getName());
         if(target.getOnline().equals("0")){
@@ -333,7 +329,7 @@ public class ChatActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onUserConnectedEvent(UserConnectedEvent event) {
         if(event.getId() == target.getId()){
-            video_call.setVisibility(View.VISIBLE);
+
             status_dot.setBackground(getResources().getDrawable(R.drawable.circlegreen));
         }
 
@@ -342,8 +338,7 @@ public class ChatActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onUserDisconnectedEvent(UserDisconnectedEvent event) {
         if(event.getId() == target.getId()){
-            video_call.setVisibility(View.GONE);
-            status_dot.setBackground(getResources().getDrawable(R.drawable.circle_grey));
+             status_dot.setBackground(getResources().getDrawable(R.drawable.circle_grey));
         }
     }
     private void getRoomMessages() {

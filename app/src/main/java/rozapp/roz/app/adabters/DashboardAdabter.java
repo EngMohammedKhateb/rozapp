@@ -59,14 +59,14 @@ public class DashboardAdabter extends RecyclerView.Adapter<DashboardAdabter.Dash
 
     @Override
     public void onBindViewHolder(@NonNull DashboardViewHolder holder, @SuppressLint("RecyclerView") int position) {
-
+            holder.video_call.setVisibility(View.VISIBLE);
 
            if (Integer.parseInt(data.get(position).getOnline().toString()) == 1 ) {
                holder.statue_dot.setBackground(context.getResources().getDrawable(R.drawable.circlegreen));
-               holder.video_call.setVisibility(View.VISIBLE);
+
            }else{
                holder.statue_dot.setBackground(context.getResources().getDrawable(R.drawable.circle_grey));
-               holder.video_call.setVisibility(View.GONE);
+
            }
         Picasso.with(context).load(Constants.Image_URL+data.get(position).getImage()).resize(160,200).centerCrop().into(holder.user_image);
 

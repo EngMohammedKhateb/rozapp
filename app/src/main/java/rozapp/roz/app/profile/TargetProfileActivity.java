@@ -2,27 +2,23 @@ package rozapp.roz.app.profile;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
@@ -38,6 +34,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rozapp.roz.app.Fcm.ApiClient;
 import rozapp.roz.app.Fcm.ApiInterface;
 import rozapp.roz.app.Fcm.DataModel;
@@ -57,17 +57,11 @@ import rozapp.roz.app.models.AuthResponse;
 import rozapp.roz.app.models.Contact;
 import rozapp.roz.app.models.ErrorHandler;
 import rozapp.roz.app.models.Media;
-import rozapp.roz.app.models.MyGifys;
 import rozapp.roz.app.models.TargetProfile;
 import rozapp.roz.app.models.TargetProfileGifts;
 import rozapp.roz.app.serve.ChatApplication;
-import rozapp.roz.app.setting.PlansActivity;
 import rozapp.roz.app.setting.ReportActivity;
 import rozapp.roz.app.videocall.RequestVideoCall;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class TargetProfileActivity extends AppCompatActivity {
 
@@ -504,16 +498,8 @@ public class TargetProfileActivity extends AppCompatActivity {
                         }
                     });
                     coins_ber.setText(" "+targetProfile.getCoinsPerMinute()+" token/minute");
-                    if(targetProfile.getDisableVideo()==0){
-                        video_call.setVisibility(View.VISIBLE);
 
-                    }else{
-                        video_call.setVisibility(View.GONE);
-                    }
-                    if(targetProfile.getOnline().equals("0")){
-                        video_call.setVisibility(View.GONE);
-                    }
-
+                    video_call.setVisibility(View.VISIBLE);
                     if(targetProfile.getDisableChat()==0){
                         chat_btn.setVisibility(View.VISIBLE);
                     }else{
@@ -543,17 +529,13 @@ public class TargetProfileActivity extends AppCompatActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onUserConnectedEvent(UserConnectedEvent event) {
-        if(event.getId() == Integer.parseInt(target_id)){
-            video_call.setVisibility(View.VISIBLE);
-        }
+
 
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onUserDisconnectedEvent(UserDisconnectedEvent event) {
-        if(event.getId() == Integer.parseInt(target_id)){
-            video_call.setVisibility(View.GONE);
-        }
+
     }
 
 
