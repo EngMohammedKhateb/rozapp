@@ -404,10 +404,10 @@ public class ChatActivity extends AppCompatActivity {
     public void onChatMessageEvent(ChatMessageEvent message) {
 
         if(message.getFromUser()==authResponse.getUser().getId() && message.getToUser()==target.getId()){
-            messages.add(new ChatMessage(message.getId(),message.getFromUser(),message.getToUser(),message.getRoomId(),message.getMessage(),message.getMsgType(),message.getSrc(),message.getStatue(),message.getDeletedAt(),message.getCreatedAt(),message.getUpdatedAt(),target.getName()));
+            messages.add(new ChatMessage(message.getId(),message.getFromUser(),message.getToUser(),message.getRoomId(),message.getMessage(),message.getMsgType(),message.getSrc(),message.getStatue(),message.getDeletedAt(),message.getCreatedAt().toString(),message.getUpdatedAt(),target.getName()));
         }
         if(message.getFromUser()==target.getId() && message.getToUser()==authResponse.getUser().getId()){
-            messages.add(new ChatMessage(message.getId(),message.getFromUser(),message.getToUser(),message.getRoomId(),message.getMessage(),message.getMsgType(),message.getSrc(),message.getStatue(),message.getDeletedAt(),message.getCreatedAt(),message.getUpdatedAt(),target.getName()));
+            messages.add(new ChatMessage(message.getId(),message.getFromUser(),message.getToUser(),message.getRoomId(),message.getMessage(),message.getMsgType(),message.getSrc(),message.getStatue(),message.getDeletedAt(),message.getCreatedAt().toString(),message.getUpdatedAt(),target.getName()));
 
             try {
                 JSONObject jsonObject=new JSONObject();

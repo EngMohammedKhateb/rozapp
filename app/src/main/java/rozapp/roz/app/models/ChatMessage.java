@@ -34,7 +34,7 @@ public class ChatMessage {
     private Object deletedAt;
     @SerializedName("created_at")
     @Expose
-    private Object createdAt;
+    private String createdAt;
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
@@ -43,7 +43,7 @@ public class ChatMessage {
     private String friend_name;
 
 
-    public ChatMessage(int id, int fromUser, int toUser, String roomId, String message, String msgType, String src, int statue, Object deletedAt, Object createdAt, String updatedAt, String friend_name) {
+    public ChatMessage(int id, int fromUser, int toUser, String roomId, String message, String msgType, String src, int statue, Object deletedAt, String createdAt, String updatedAt, String friend_name) {
         this.id = id;
         this.fromUser = fromUser;
         this.toUser = toUser;
@@ -142,7 +142,7 @@ public class ChatMessage {
         return createdAt;
     }
 
-    public void setCreatedAt(Object createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 

@@ -37,7 +37,7 @@ public class ChatMessageEvent {
     private Object deletedAt;
     @SerializedName("created_at")
     @Expose
-    private Object createdAt;
+    private String createdAt;
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
@@ -140,7 +140,7 @@ public class ChatMessageEvent {
         return createdAt;
     }
 
-    public void setCreatedAt(Object createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 

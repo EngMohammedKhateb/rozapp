@@ -99,10 +99,10 @@ public class ChatAdabter extends RecyclerView.Adapter<ChatAdabter.ChatViewHolder
                 holder.row_my_misscall.setVisibility(View.GONE);
                 holder.row_misscall.setVisibility(View.GONE);
                 holder.my_name_tv.setText("You");
-                if(messages.get(position).getUpdatedAt()==null){
+                try{
+                    holder.my_data_tv.setText(KhateebPattern.LaravelDate(messages.get(position).getCreatedAt().toString()));
+                }catch (Exception ex){
                     holder.my_data_tv.setText("");
-                }else{
-                    holder.my_data_tv.setText(KhateebPattern.LaravelDate(messages.get(position).getUpdatedAt().toString()));
                 }
                 holder.my_msg_tv.setText(messages.get(position).getMessage());
             }
@@ -138,11 +138,14 @@ public class ChatAdabter extends RecyclerView.Adapter<ChatAdabter.ChatViewHolder
                 holder.row_my_misscall.setVisibility(View.GONE);
                 holder.row_misscall.setVisibility(View.GONE);
                 holder.friend_name_tv.setText(messages.get(position).getFriend_name());
-                if(messages.get(position).getUpdatedAt()==null){
-                    holder.freind_msg_date_tv.setText("");
-                }else{
-                    holder.freind_msg_date_tv.setText(KhateebPattern.LaravelDate(messages.get(position).getUpdatedAt().toString()));
-                }
+
+                    try{
+                        holder.freind_msg_date_tv.setText(KhateebPattern.LaravelDate(messages.get(position).getCreatedAt().toString()));
+                    }catch (Exception ex){
+                        holder.freind_msg_date_tv.setText("");
+                    }
+
+
 
                 holder.freind_msg.setText(messages.get(position).getMessage());
             }
