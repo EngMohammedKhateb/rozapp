@@ -1,11 +1,5 @@
 package rozapp.roz.app.auth;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -18,6 +12,12 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
@@ -34,6 +34,12 @@ import java.io.InputStream;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rozapp.roz.app.R;
 import rozapp.roz.app.helper.Constants;
 import rozapp.roz.app.helper.Database;
@@ -43,12 +49,6 @@ import rozapp.roz.app.home.HomeActivity;
 import rozapp.roz.app.models.AuthResponse;
 import rozapp.roz.app.models.ErrorHandler;
 import rozapp.roz.app.models.ErrorResponse;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CompleteRegisterActivity extends AppCompatActivity {
 
@@ -125,10 +125,12 @@ public class CompleteRegisterActivity extends AppCompatActivity {
         mGetContent=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
-                Intent intent=new Intent( CompleteRegisterActivity.this, CropperActivity.class);
-                intent.putExtra("upload_type","upload_type");
-                intent.putExtra("data",result.toString());
-                activityResultLaunch.launch(intent);
+                if(result != null){
+                    Intent intent=new Intent( CompleteRegisterActivity.this, CropperActivity.class);
+                    intent.putExtra("upload_type","upload_type");
+                    intent.putExtra("data",result.toString());
+                    activityResultLaunch.launch(intent);
+                }
                 }
             });
         }
