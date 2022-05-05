@@ -51,6 +51,7 @@ public class PlanAdabter extends RecyclerView.Adapter<PlanAdabter.PlanViewHolder
                    context.startActivity(intent);
                }
            });
+
     }
 
     @Override
@@ -74,6 +75,7 @@ public class PlanAdabter extends RecyclerView.Adapter<PlanAdabter.PlanViewHolder
 
         @BindView(R.id.pay_plan)
         RelativeLayout pay_plan;
+
 
         public PlanViewHolder(@NonNull View itemView) {
             super(itemView);
