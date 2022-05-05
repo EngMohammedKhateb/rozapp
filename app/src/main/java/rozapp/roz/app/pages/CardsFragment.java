@@ -162,7 +162,7 @@ public class CardsFragment extends Fragment {
             public void onResponse(Call<List<TopUser>> call, Response<List<TopUser>> response) {
 
                 if(response.code()==200){
-                    if(response.body().size()>0){
+                    if(response.body().size()>4){
                         for (TopUser user:response.body()) {
                             topthree.add(user);
                         }
